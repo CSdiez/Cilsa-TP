@@ -3,8 +3,12 @@ const titleTask = document.getElementById("title-task");
 const textTask = document.getElementById("text-task");
 const container = document.getElementById("container");
 
+
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+ 
 
   const title = titleTask.value;
   const desc = textTask.value;
@@ -60,15 +64,20 @@ form.addEventListener("submit", (e) => {
   newDiv.appendChild(newErase)
   container.appendChild(newTask);
 
+  //Agregamos evento para cambiar de color al completas
   newComplete.addEventListener("click", () => {
     newTask.classList.add("btnComplete")
     newDesc.classList.add("btnComplete")
 
-
-
   })
-
+  //Evento para borrar
   newErase.addEventListener("click", () => {
     container.removeChild(newTask)
+
   })
+  function limpiar(){
+    titleTask.value="";
+    textTask.value="";
+  }
+  limpiar()
 });
